@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" fill="none">
+  <title>Alpine lake at dusk, an original illustrative landscape</title>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b9c3b6" />
+      <stop offset=".55" stop-color="#d6d7bc" />
+      <stop offset="1" stop-color="#617b71" />
+    </linearGradient>
+    <linearGradient id="lake" x1="600" y1="290" x2="600" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#829c90" />
+      <stop offset="1" stop-color="#294e4b" />
+    </linearGradient>
+    <linearGradient id="hill" x2="700" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4d6960" />
+      <stop offset="1" stop-color="#243f3a" />
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer><feFuncA type="linear" slope=".13" /></feComponentTransfer>
+      <feBlend in="SourceGraphic" mode="soft-light" />
+    </filter>
+    <g id="tree">
+      <path d="m0-110-25 53h13l-26 43h26L-2 0h4l10-14h26L12-57h13Z" fill="#213f36" />
+      <path d="M0-70V8" stroke="#233c32" stroke-width="3" />
+    </g>
+  </defs>
+  <g filter="url(#grain)">
+    <path fill="url(#sky)" d="M0 0h1200v600H0z" />
+    <path d="m100 295 190-191 67 58 132-118 123 152 80-64 151 136 91-128 166 155Z" fill="#8d9e94" />
+    <path d="m324 174 33-12 132-118 123 152-119-89-43 41-30-5-45 45Z" fill="#c2cbbd" />
+    <path d="m545 297 199-148 172 145 87-61 197 60v121H0V300l170-95 141 109 102-86Z" fill="#657e73" />
+    <path d="M0 310h1200v290H0z" fill="url(#lake)" />
+    <path d="m0 95 79 71 62 19 45 70 106 67 101 16-153 45L0 470Z" fill="url(#hill)" />
+    <path d="m1200 89-100 69-62 75-105 58-112 50 126 24 253 98Z" fill="#3d5d4e" />
+    <path d="m1200 260-89 32-108 40-100 12 112 19 185 48Z" fill="#294c3e" />
+    <path d="m0 332 163-9 174 22-137 22L0 399Z" fill="#294b3e" />
+    <g opacity=".9">
+      <use href="#tree" transform="translate(28 324) scale(1.4)" />
+      <use href="#tree" transform="translate(76 331) scale(1.8)" />
+      <use href="#tree" transform="translate(125 330) scale(.9)" />
+      <use href="#tree" transform="translate(172 339) scale(.8)" />
+      <use href="#tree" transform="translate(213 345) scale(.6)" />
+      <use href="#tree" transform="translate(1160 330) scale(1.5)" />
+      <use href="#tree" transform="translate(1111 326) scale(1.2)" />
+      <use href="#tree" transform="translate(1070 332) scale(.8)" />
+      <use href="#tree" transform="translate(1020 340) scale(.65)" />
+      <use href="#tree" transform="translate(980 345) scale(.5)" />
+    </g>
+    <g stroke="#b4c3ae" opacity=".24">
+      <path d="M460 374h254m-308 31h351m-279 34h198m-310 35h480m-563 40h332m-68 31h341m-494 26h178" />
+      <path d="M405 389h124m91 36h170m-304 31h142m-94 41h183m-260 44h134" />
+    </g>
+    <path d="m0 548 100-25 105 26 69 51H0Zm1200-34-119 38-145 48h264Z" fill="#203c34" />
+  </g>
+</svg>

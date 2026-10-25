@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" fill="none">
+  <title>Babel Player icon with a centered quarter-height mosaic</title>
+  <g id="cards" transform="translate(2 4)">
+    <path fill="#000" d="M38 20h64a16 16 0 0 1 16 16v32L70 116H38a16 16 0 0 1-16-16V36a16 16 0 0 1 16-16Z" />
+    <path fill="#000" d="M122 68h28a16 16 0 0 1 16 16v64a16 16 0 0 1-16 16H86a16 16 0 0 1-16-16v-28Z" />
+    <g stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M70 35v10M43 45h50M82 46c-4 18-14 30-31 39M54 56c6 13 16 22 30 28" />
+      <path d="m106 141 18-42 18 42m-28-12h20" />
+    </g>
+  </g>
+  <g id="mosaic" shape-rendering="crispEdges">
+    <rect x="24" y="72" width="12" height="12" fill="#757575" />
+    <rect x="36" y="72" width="12" height="12" fill="#535353" />
+    <rect x="48" y="72" width="12" height="12" fill="#757575" />
+    <rect x="60" y="72" width="12" height="12" fill="#535353" />
+    <rect x="72" y="72" width="12" height="12" fill="#343434" />
+    <rect x="84" y="72" width="12" height="12" fill="#535353" />
+    <rect x="96" y="72" width="12" height="12" fill="#969696" />
+    <rect x="108" y="72" width="12" height="12" fill="#161616" />
+    <rect x="120" y="72" width="12" height="12" fill="#f1f1f1" />
+    <rect x="132" y="72" width="12" height="12" fill="#f1f1f1" />
+    <rect x="144" y="72" width="12" height="12" fill="#343434" />
+    <rect x="156" y="72" width="12" height="12" fill="#161616" />
+    <rect x="24" y="84" width="12" height="12" fill="#f1f1f1" />
+    <rect x="36" y="84" width="12" height="12" fill="#343434" />
+    <rect x="48" y="84" width="12" height="12" fill="#969696" />
+    <rect x="60" y="84" width="12" height="12" fill="#535353" />
+    <rect x="72" y="84" width="12" height="12" fill="#b6b6b6" />
+    <rect x="84" y="84" width="12" height="12" fill="#969696" />
+    <rect x="96" y="84" width="12" height="12" fill="#343434" />
+    <rect x="108" y="84" width="12" height="12" fill="#b6b6b6" />
+    <rect x="120" y="84" width="12" height="12" fill="#161616" />
+    <rect x="132" y="84" width="12" height="12" fill="#757575" />
+    <rect x="144" y="84" width="12" height="12" fill="#b6b6b6" />
+    <rect x="156" y="84" width="12" height="12" fill="#b6b6b6" />
+    <rect x="24" y="96" width="12" height="12" fill="#535353" />
+    <rect x="36" y="96" width="12" height="12" fill="#f1f1f1" />
+    <rect x="48" y="96" width="12" height="12" fill="#969696" />
+    <rect x="60" y="96" width="12" height="12" fill="#969696" />
+    <rect x="72" y="96" width="12" height="12" fill="#969696" />
+    <rect x="84" y="96" width="12" height="12" fill="#757575" />
+    <rect x="96" y="96" width="12" height="12" fill="#343434" />
+    <rect x="108" y="96" width="12" height="12" fill="#f1f1f1" />
+    <rect x="120" y="96" width="12" height="12" fill="#535353" />
+    <rect x="132" y="96" width="12" height="12" fill="#535353" />
+    <rect x="144" y="96" width="12" height="12" fill="#b6b6b6" />
+    <rect x="156" y="96" width="12" height="12" fill="#f1f1f1" />
+    <rect x="24" y="108" width="12" height="12" fill="#757575" />
+    <rect x="36" y="108" width="12" height="12" fill="#757575" />
+    <rect x="48" y="108" width="12" height="12" fill="#343434" />
+    <rect x="60" y="108" width="12" height="12" fill="#535353" />
+    <rect x="72" y="108" width="12" height="12" fill="#969696" />
+    <rect x="84" y="108" width="12" height="12" fill="#b6b6b6" />
+    <rect x="96" y="108" width="12" height="12" fill="#757575" />
+    <rect x="108" y="108" width="12" height="12" fill="#d5d5d5" />
+    <rect x="120" y="108" width="12" height="12" fill="#757575" />
+    <rect x="132" y="108" width="12" height="12" fill="#969696" />
+    <rect x="144" y="108" width="12" height="12" fill="#d5d5d5" />
+    <rect x="156" y="108" width="12" height="12" fill="#343434" />
+  </g>
+</svg>

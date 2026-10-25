@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Babel Player Icons";
+  src: url("assets/player-icons.otf") format("opentype");
+  font-display: block;
+}
+
+.player {
+  --control-size: 32px;
+  --control-spacing: 2px;
+  --control-margin: 8px;
+  --control-gap: calc(var(--control-size) * 0.3);
+  --timeline-size: 40px;
+  --video-gap: 8px;
+  background: #000;
+  border: 1px solid #000;
+  box-shadow: 0 24px 55px #24312122;
+  overflow: hidden;
+  color: #fff;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--control-spacing);
+  margin: var(--control-margin);
+  margin-top: var(--video-gap);
+  height: var(--control-size);
+}
+
+.player-control {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 var(--control-size);
+  width: var(--control-size);
+  height: var(--control-size);
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+}
+
+.player-icon {
+  font-family: "Babel Player Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: calc(var(--control-size) * 0.7);
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+.control-gap {
+  flex: 0 1 var(--control-gap);
+}
+
+.control-space {
+  flex: 1;
+}
+
+.player-control[data-control="babel_sub_mark"] {
+  cursor: pointer;
+  outline: 2px solid #d4e9a4;
+  outline-offset: 3px;
+  background: #35412b;
+  box-shadow: 0 0 14px #d4e9a459;
+}
+
+.player-control[data-control="babel_sub_mark"]:hover {
+  background: #ffffff4d;
+}
+
+.control-badge {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  padding: 0 2px;
+  border: 1px solid #000;
+  border-radius: 3px;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.player-control[data-control="babel_sub_mark"][aria-pressed="false"] .control-badge {
+  display: none;
+}
+
+.player-timeline {
+  position: relative;
+  height: var(--timeline-size);
+  border-top: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 8px;
+  font-size: 20px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.player-timeline i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 26.44%;
+  width: 2px;
+  background: #fff;
+}
