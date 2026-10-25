@@ -1,34 +1,35 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="description" content="Babel Player：适用于 Windows 和 macOS 的语言学习视频播放器。隐藏或显示字幕，专注听力练习。" />
-    <meta name="theme-color" content="#f5f4ed" />
-    <title>Babel Player — 面向语言学习者的视频播放器</title>
-    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-    <link rel="alternate" hreflang="en" href="https://babel-player.tony9527167.pages.dev/en.html" />
-    <link rel="alternate" hreflang="zh-CN" href="https://babel-player.tony9527167.pages.dev/zh-CN.html" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="player.css" />
-    <link rel="stylesheet" href="responsive.css" />
-    <link rel="canonical" href="https://babel-player.tony9527167.pages.dev/zh-CN.html" />
-    <link rel="alternate" hreflang="x-default" href="https://babel-player.tony9527167.pages.dev/" />
-    <link rel="icon" href="assets/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Babel Player" />
-    <meta property="og:title" content="Babel Player — 面向语言学习者的视频播放器" />
-    <meta property="og:description" content="Babel Player：适用于 Windows 和 macOS 的语言学习视频播放器。隐藏或显示字幕，专注听力练习。" />
-    <meta property="og:url" content="https://babel-player.tony9527167.pages.dev/zh-CN.html" />
-    <meta property="og:locale" content="zh_CN" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:image" content="https://babel-player.tony9527167.pages.dev/assets/social-preview.jpg" />
-    <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="640" />
-    <meta property="og:image:alt" content="Babel Player 字幕遮罩演示" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Babel Player：适用于 Windows 和 macOS 的语言学习视频播放器。隐藏或显示字幕，专注听力练习。" />
+  <meta name="theme-color" content="#f5f4ed" />
+  <title>Babel Player — 面向语言学习者的视频播放器</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="alternate" hreflang="en" href="https://babel-player.tony9527167.pages.dev/en.html" />
+  <link rel="alternate" hreflang="zh-CN" href="https://babel-player.tony9527167.pages.dev/zh-CN.html" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="player.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="canonical" href="https://babel-player.tony9527167.pages.dev/zh-CN.html" />
+  <link rel="alternate" hreflang="x-default" href="https://babel-player.tony9527167.pages.dev/" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Babel Player" />
+  <meta property="og:title" content="Babel Player — 面向语言学习者的视频播放器" />
+  <meta property="og:description" content="Babel Player：适用于 Windows 和 macOS 的语言学习视频播放器。隐藏或显示字幕，专注听力练习。" />
+  <meta property="og:url" content="https://babel-player.tony9527167.pages.dev/zh-CN.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:image" content="https://babel-player.tony9527167.pages.dev/assets/social-preview.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="640" />
+  <meta property="og:image:alt" content="Babel Player 字幕遮罩演示" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -41,161 +42,144 @@
         "featureList": ["字幕遮罩", "语言听力练习"]
       }
     </script>
-    <script src="demo.js" defer></script>
-  </head>
+  <script src="demo.js" defer></script>
+</head>
 
-  <body>
-    <a class="skip-link" href="#main">跳至正文</a>
-    <header class="site-header wrap">
-      <a class="brand" href="#"><img src="assets/icon.svg" alt="" width="34" height="34" />Babel Player</a>
-      <nav class="language-switch" aria-label="语言">
-        <a href="en.html" lang="en">English</a><a href="zh-CN.html" lang="zh-CN" aria-current="page">简体中文</a>
-      </nav>
-    </header>
-    <main id="main">
-      <section class="hero wrap" aria-labelledby="hero-title">
-        <h1 id="hero-title">面向<em>语言学习者</em><br />的视频播放器</h1>
-        <div class="hero-actions">
-          <a class="button" href="#downloads">下载 Babel Player <span aria-hidden="true">↓</span></a>
-        </div>
-        <div class="demo-stage" id="experience">
-          <div class="demo-example">
-            <p class="state-label">01 / 字幕已隐藏</p>
-            <div class="player" data-demo="masked" aria-label="字幕遮罩交互演示">
-              <div class="scene">
-                <img class="landscape" src="assets/landscape.svg" alt="暮色中群山与森林环绕的高山湖泊插画" width="1200" height="600" />
-                <div class="subtitle">Sometimes, the best plan is to get a little lost.</div>
-                <div class="subtitle-mask" aria-hidden="true"></div>
-              </div>
-              <div class="player-controls">
-                <span class="player-control" data-control="babel_open" title="在文件夹中显示" role="img" aria-label="在文件夹中显示"
-                  ><span class="player-icon" aria-hidden="true">folder_open</span></span
-                >
-                <span class="control-gap" aria-hidden="true"></span>
-                <span class="player-control" data-control="subtitles" title="字幕" role="img" aria-label="字幕"
-                  ><span class="player-icon" aria-hidden="true">subtitles</span></span
-                >
-                <span class="player-control" data-control="audio" title="音轨" role="img" aria-label="音轨"
-                  ><span class="player-icon" aria-hidden="true">graphic_eq</span></span
-                >
-                <span class="control-gap" aria-hidden="true"></span>
-                <button class="player-control" data-control="babel_sub_mark" type="button" aria-label="切换字幕遮罩" title="切换字幕遮罩" aria-pressed="true">
-                  <span class="player-icon" aria-hidden="true">subtitles_off</span><span class="control-badge" aria-hidden="true">1</span>
-                </button>
-                <span class="control-gap" aria-hidden="true"></span>
-                <span class="player-control" data-control="babel_settings" title="设置" role="img" aria-label="设置"
-                  ><span class="player-icon" aria-hidden="true">settings</span></span
-                >
-                <span class="control-gap" aria-hidden="true"></span>
-                <span class="player-control" data-control="babel_help" title="帮助" role="img" aria-label="帮助"
-                  ><span class="player-icon" aria-hidden="true">help</span></span
-                >
-                <span class="control-space" aria-hidden="true"></span>
-                <span class="player-control" data-control="fullscreen" title="全屏" role="img" aria-label="全屏"
-                  ><span class="player-icon" aria-hidden="true">crop_free</span></span
-                >
-              </div>
-              <div class="player-timeline" aria-hidden="true"><span>02:18</span><i></i><span>−06:24</span></div>
+<body>
+  <a class="skip-link" href="#main">跳至正文</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#"><img src="assets/icon.svg" alt="" width="34" height="34" />Babel Player</a>
+    <nav class="language-switch" aria-label="语言">
+      <a href="en.html" lang="en">English</a><a href="zh-CN.html" lang="zh-CN" aria-current="page">简体中文</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <h1 id="hero-title">面向<em>语言学习者</em><br />的视频播放器</h1>
+      <div class="hero-actions">
+        <a class="button" href="#downloads">下载 Babel Player <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="demo-stage" id="experience">
+        <div class="demo-example">
+          <p class="state-label">01 / 字幕已隐藏</p>
+          <div class="player" data-demo="masked" aria-label="字幕遮罩交互演示">
+            <div class="scene">
+              <img class="landscape" src="assets/landscape.svg" alt="暮色中群山与森林环绕的高山湖泊插画" width="1200" height="600" />
+              <div class="subtitle">Sometimes, the best plan is to get a little lost.</div>
+              <div class="subtitle-mask" aria-hidden="true"></div>
             </div>
-          </div>
-          <div class="demo-transition">
-            <svg class="pointer-figure" viewBox="0 0 140 110" fill="none" aria-hidden="true">
-              <path d="M6 92h128m-14-12 14 12-14 12" stroke="currentColor" stroke-width="3" />
-              <rect x="37" y="7" width="58" height="46" rx="6" fill="#35412b" stroke="#a6bf73" stroke-width="3" />
-              <path d="M49 21h13m6 0h14M49 31h27m-30-17 37 29" stroke="#fff" stroke-width="3" />
-              <path d="m75 35 4 38 9-11 12 17 7-5-12-17 13-3Z" fill="#f5f4ed" stroke="currentColor" stroke-width="2" />
-            </svg>
-            <p>将鼠标悬停在<br /><strong>切换字幕遮罩</strong>上。<br />点击或轻触显示字幕。</p>
-          </div>
-          <div class="demo-example">
-            <p class="state-label">02 / 字幕已显示</p>
-            <div class="player" data-demo="revealed" aria-label="字幕遮罩交互演示">
-              <div class="scene">
-                <img class="landscape" src="assets/landscape.svg" alt="暮色中群山与森林环绕的高山湖泊插画" width="1200" height="600" />
-                <div class="subtitle">Sometimes, the best plan is to get a little lost.</div>
-                <div class="subtitle-mask" hidden aria-hidden="true"></div>
-              </div>
-              <div class="player-controls">
-                <span class="player-control" data-control="babel_open" title="在文件夹中显示" role="img" aria-label="在文件夹中显示"
-                  ><span class="player-icon" aria-hidden="true">folder_open</span></span
-                >
-                <span class="control-gap" aria-hidden="true"></span>
-                <span class="player-control" data-control="subtitles" title="字幕" role="img" aria-label="字幕"
-                  ><span class="player-icon" aria-hidden="true">subtitles</span></span
-                >
-                <span class="player-control" data-control="audio" title="音轨" role="img" aria-label="音轨"
-                  ><span class="player-icon" aria-hidden="true">graphic_eq</span></span
-                >
-                <span class="control-gap" aria-hidden="true"></span>
-                <button class="player-control" data-control="babel_sub_mark" type="button" aria-label="切换字幕遮罩" title="切换字幕遮罩" aria-pressed="false">
-                  <span class="player-icon" aria-hidden="true">subtitles_off</span><span class="control-badge" aria-hidden="true">1</span>
-                </button>
-                <span class="control-gap" aria-hidden="true"></span>
-                <span class="player-control" data-control="babel_settings" title="设置" role="img" aria-label="设置"
-                  ><span class="player-icon" aria-hidden="true">settings</span></span
-                >
-                <span class="control-gap" aria-hidden="true"></span>
-                <span class="player-control" data-control="babel_help" title="帮助" role="img" aria-label="帮助"
-                  ><span class="player-icon" aria-hidden="true">help</span></span
-                >
-                <span class="control-space" aria-hidden="true"></span>
-                <span class="player-control" data-control="fullscreen" title="全屏" role="img" aria-label="全屏"
-                  ><span class="player-icon" aria-hidden="true">crop_free</span></span
-                >
-              </div>
-              <div class="player-timeline" aria-hidden="true"><span>02:18</span><i></i><span>−06:24</span></div>
+            <div class="player-controls">
+              <span class="player-control" data-control="babel_open" title="在文件夹中显示" role="img" aria-label="在文件夹中显示"><span class="player-icon"
+                  aria-hidden="true">folder_open</span></span>
+              <span class="control-gap" aria-hidden="true"></span>
+              <span class="player-control" data-control="subtitles" title="字幕" role="img" aria-label="字幕"><span class="player-icon"
+                  aria-hidden="true">subtitles</span></span>
+              <span class="player-control" data-control="audio" title="音轨" role="img" aria-label="音轨"><span class="player-icon"
+                  aria-hidden="true">graphic_eq</span></span>
+              <span class="control-gap" aria-hidden="true"></span>
+              <button class="player-control" data-control="babel_sub_mark" type="button" aria-label="切换字幕遮罩" title="切换字幕遮罩" aria-pressed="true">
+                <span class="player-icon" aria-hidden="true">subtitles_off</span><span class="control-badge" aria-hidden="true">1</span>
+              </button>
+              <span class="control-gap" aria-hidden="true"></span>
+              <span class="player-control" data-control="babel_settings" title="设置" role="img" aria-label="设置"><span class="player-icon"
+                  aria-hidden="true">settings</span></span>
+              <span class="control-gap" aria-hidden="true"></span>
+              <span class="player-control" data-control="babel_help" title="帮助" role="img" aria-label="帮助"><span class="player-icon"
+                  aria-hidden="true">help</span></span>
+              <span class="control-space" aria-hidden="true"></span>
+              <span class="player-control" data-control="fullscreen" title="全屏" role="img" aria-label="全屏"><span class="player-icon"
+                  aria-hidden="true">crop_free</span></span>
             </div>
+            <div class="player-timeline" aria-hidden="true"><span>02:18</span><i></i><span>−06:24</span></div>
           </div>
         </div>
-        <p class="demo-note">同一时刻。点击一次，改变关注的内容。试试高亮按钮。</p>
-      </section>
-      <section class="details wrap" aria-labelledby="why-title">
-        <h2 id="why-title">为什么选择 Babel Player？</h2>
-        <div class="feature-grid">
-          <article>
-            <span class="feature-number">01</span>
-            <h3>简洁。美观。轻松易用。</h3>
-            <p>清爽的界面，从第一次点击就能自然上手。少花时间查找菜单，多花时间观看。</p>
-          </article>
-          <article>
-            <span class="feature-number">02</span>
-            <h3>体积小。功能强。</h3>
-            <p>下载包小于 <b>30 MB</b>。可播放 MP4、MKV、AVI、MOV 和 WebM 文件。</p>
-          </article>
-          <article>
-            <span class="feature-number">03</span>
-            <h3>有目的地精简。</h3>
-            <p>每项功能都服务于语言学习。隐藏字幕，仔细聆听，在需要时显示文字。</p>
-          </article>
+        <div class="demo-transition">
+          <svg class="pointer-figure" viewBox="0 0 140 110" fill="none" aria-hidden="true">
+            <path d="M6 92h128m-14-12 14 12-14 12" stroke="currentColor" stroke-width="3" />
+            <rect x="37" y="7" width="58" height="46" rx="6" fill="#35412b" stroke="#a6bf73" stroke-width="3" />
+            <path d="M49 21h13m6 0h14M49 31h27m-30-17 37 29" stroke="#fff" stroke-width="3" />
+            <path d="m75 35 4 38 9-11 12 17 7-5-12-17 13-3Z" fill="#f5f4ed" stroke="currentColor" stroke-width="2" />
+          </svg>
+          <p>将鼠标悬停在<br /><strong>切换字幕遮罩</strong>上。<br />点击或轻触显示字幕。</p>
         </div>
-        <div class="codec-note">
-          <p>视频编码：H.264、HEVC（H.265）、VP9、AV1。<br />音频编码：AAC。</p>
-          <p>支持的编码可能因操作系统而异。</p>
+        <div class="demo-example">
+          <p class="state-label">02 / 字幕已显示</p>
+          <div class="player" data-demo="revealed" aria-label="字幕遮罩交互演示">
+            <div class="scene">
+              <img class="landscape" src="assets/landscape.svg" alt="暮色中群山与森林环绕的高山湖泊插画" width="1200" height="600" />
+              <div class="subtitle">Sometimes, the best plan is to get a little lost.</div>
+              <div class="subtitle-mask" hidden aria-hidden="true"></div>
+            </div>
+            <div class="player-controls">
+              <span class="player-control" data-control="babel_open" title="在文件夹中显示" role="img" aria-label="在文件夹中显示"><span class="player-icon"
+                  aria-hidden="true">folder_open</span></span>
+              <span class="control-gap" aria-hidden="true"></span>
+              <span class="player-control" data-control="subtitles" title="字幕" role="img" aria-label="字幕"><span class="player-icon"
+                  aria-hidden="true">subtitles</span></span>
+              <span class="player-control" data-control="audio" title="音轨" role="img" aria-label="音轨"><span class="player-icon"
+                  aria-hidden="true">graphic_eq</span></span>
+              <span class="control-gap" aria-hidden="true"></span>
+              <button class="player-control" data-control="babel_sub_mark" type="button" aria-label="切换字幕遮罩" title="切换字幕遮罩" aria-pressed="false">
+                <span class="player-icon" aria-hidden="true">subtitles_off</span><span class="control-badge" aria-hidden="true">1</span>
+              </button>
+              <span class="control-gap" aria-hidden="true"></span>
+              <span class="player-control" data-control="babel_settings" title="设置" role="img" aria-label="设置"><span class="player-icon"
+                  aria-hidden="true">settings</span></span>
+              <span class="control-gap" aria-hidden="true"></span>
+              <span class="player-control" data-control="babel_help" title="帮助" role="img" aria-label="帮助"><span class="player-icon"
+                  aria-hidden="true">help</span></span>
+              <span class="control-space" aria-hidden="true"></span>
+              <span class="player-control" data-control="fullscreen" title="全屏" role="img" aria-label="全屏"><span class="player-icon"
+                  aria-hidden="true">crop_free</span></span>
+            </div>
+            <div class="player-timeline" aria-hidden="true"><span>02:18</span><i></i><span>−06:24</span></div>
+          </div>
         </div>
-      </section>
-      <section class="downloads wrap" id="downloads" aria-labelledby="downloads-title">
-        <h2 id="downloads-title">下载</h2>
-        <div class="download-grid">
-          <a class="download-card" href="https://s3.foo.bar/path/to/babel-player.windows.amd64.zip"
-            ><svg viewBox="0 0 48 48" aria-hidden="true">
-              <path fill="currentColor" d="m3 9 18-3v17H3Zm21-4 21-3v21H24ZM3 26h18v17L3 40Zm21 0h21v21l-21-3Z" /></svg
-            ><span><strong>Windows 10+</strong><span>amd64 · ZIP</span></span
-            ><span class="download-arrow" aria-hidden="true">↗</span></a
-          >
-          <a class="download-card" href="https://s3.foo.bar/path/to/babel-player.macOS.arm64.zip"
-            ><svg viewBox="0 0 48 48" aria-hidden="true">
-              <path
-                fill="currentColor"
-                d="M30 9c3-3 3-6 3-8-4 0-8 4-9 8-1 2-1 3-1 4 3 0 5-1 7-4ZM39 27c0-5 3-8 6-10-3-4-7-6-11-6-5 0-7 3-10 3s-6-3-10-2C5 13 1 20 3 30c1 7 7 17 12 17 3 0 5-2 9-2s6 2 9 2c5 0 10-8 12-13-4-1-6-4-6-7Z"
-              /></svg
-            ><span><strong>macOS 11+</strong><span>Apple Silicon · arm64 · ZIP</span></span
-            ><span class="download-arrow" aria-hidden="true">↗</span></a
-          >
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer wrap">
-      <a class="brand" href="#"><img src="assets/icon.svg" alt="" width="28" height="28" />Babel Player</a>
-    </footer>
-  </body>
+      </div>
+      <p class="demo-note">同一时刻。点击一次，改变关注的内容。试试高亮按钮。</p>
+    </section>
+    <section class="details wrap" aria-labelledby="why-title">
+      <h2 id="why-title">为什么选择 Babel Player？</h2>
+      <div class="feature-grid">
+        <article>
+          <span class="feature-number">01</span>
+          <h3>简洁。美观。轻松易用。</h3>
+          <p>清爽的界面，从第一次点击就能自然上手。少花时间查找菜单，多花时间观看。</p>
+        </article>
+        <article>
+          <span class="feature-number">02</span>
+          <h3>体积小。功能强。</h3>
+          <p>下载包小于 <b>30 MB</b>。可播放 MP4、MKV、AVI、MOV 和 WebM 文件。</p>
+        </article>
+        <article>
+          <span class="feature-number">03</span>
+          <h3>有目的地精简。</h3>
+          <p>每项功能都服务于语言学习。隐藏字幕，仔细聆听，在需要时显示文字。</p>
+        </article>
+      </div>
+      <div class="codec-note">
+        <p>视频编码：H.264、HEVC（H.265）、VP9、AV1。<br />音频编码：AAC。</p>
+        <p>支持的编码可能因操作系统而异。</p>
+      </div>
+    </section>
+    <section class="downloads wrap" id="downloads" aria-labelledby="downloads-title">
+      <h2 id="downloads-title">下载</h2>
+      <div class="download-grid">
+        <a class="download-card" href="https://github.com/tony9527167/babel-player/releases/download/v2026.10.1-rc0/Babel.Player.windows-amd64.zip"><svg
+            viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="currentColor" d="m3 9 18-3v17H3Zm21-4 21-3v21H24ZM3 26h18v17L3 40Zm21 0h21v21l-21-3Z" />
+          </svg><span><strong>Windows 10+</strong><span>amd64 · ZIP</span></span><span class="download-arrow" aria-hidden="true">↗</span></a>
+        <a class="download-card" href="https://github.com/tony9527167/babel-player/releases/download/v2026.10.1-rc0/Babel.Player.macOS-arm64.zip"><svg
+            viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="currentColor"
+              d="M30 9c3-3 3-6 3-8-4 0-8 4-9 8-1 2-1 3-1 4 3 0 5-1 7-4ZM39 27c0-5 3-8 6-10-3-4-7-6-11-6-5 0-7 3-10 3s-6-3-10-2C5 13 1 20 3 30c1 7 7 17 12 17 3 0 5-2 9-2s6 2 9 2c5 0 10-8 12-13-4-1-6-4-6-7Z" />
+          </svg><span><strong>macOS 11+</strong><span>Apple Silicon · arm64 · ZIP</span></span><span class="download-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer wrap">
+    <a class="brand" href="#"><img src="assets/icon.svg" alt="" width="28" height="28" />Babel Player</a>
+  </footer>
+</body>
+
 </html>
