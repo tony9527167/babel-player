@@ -26,10 +26,10 @@ for (const language of ["en", "zh-CN"]) {
     await page.screenshot({ path: testInfo.outputPath(`${language}-mobile.png`), fullPage: true });
     const players = page.locator("[data-demo]");
     await players.nth(0).getByRole("button").click();
-    await expect(players.nth(0).locator(".subtitle-mask")).toBeHidden();
-    await expect(players.nth(1).locator(".subtitle-mask")).toBeHidden();
-    await players.nth(1).getByRole("button").click();
+    await expect(players.nth(0).locator(".subtitle-mask")).toBeVisible();
     await expect(players.nth(1).locator(".subtitle-mask")).toBeVisible();
+    await players.nth(1).getByRole("button").click();
+    await expect(players.nth(1).locator(".subtitle-mask")).toBeHidden();
     await page.locator('a[href="#downloads"]').click();
     await expect(page.locator("#downloads")).toBeInViewport();
     expect(errors).toEqual([]);

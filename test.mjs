@@ -42,13 +42,19 @@ for (const language of ["en", "zh-CN"]) {
     assert.match(html, /href="https:\/\/[^" ]+\/babel-player.windows.amd64.zip"/);
     assert.match(html, /href="https:\/\/[^" ]+\/babel-player.macOS.arm64.zip"/);
     assert.match(html, /H\.264/);
-    assert.match(html, /<b>30 MB<\/b>/);
+    assert.match(html, /<b>20 MB<\/b>/);
     assert.doesNotMatch(html, /state-caption|section-intro|availability|Focus on what you hear|Check what you heard|Choose your platform/);
     const details = html.match(/<section class="details wrap"[\s\S]*?<\/section>/)[0];
     assert.match(details, /MP4/);
     assert.match(details, /MKV/);
     const features = details.split('<div class="codec-note">')[0];
-    assert.doesNotMatch(features, /Windows|H\.264|HEVC|VP9|AV1|AAC/);
+    assert.doesNotMatch(html, /feature-number|class="demo-note"|(?:01|02) \/ /);
+    assert.equal((details.match(/<article>/g) || []).length, 3);
+    assert.match(html, /class="hero-feature"/);
+    assert.match(html, /data-demo="revealed"[\s\S]*data-demo="masked"/);
+    const articles = [...details.matchAll(/<article>([\s\S]*?)<\/article>/g)];
+    assert.match(articles[1][1], /class="codec-note"/);
+    assert.doesNotMatch(articles[2][1], /<p>/);
     for (const format of ["MP4", "MKV", "AVI", "MOV", "WebM"]) assert.ok(features.includes(format));
     assert.match(details, /class="codec-note">[\s\S]*H\.264[\s\S]*<br \/>[^<]*AAC/);
     assert.ok(details.includes(language === "en" ? "Supported codecs may vary by operating system." : "支持的编码可能因操作系统而异。"));
@@ -82,10 +88,10 @@ for (const language of ["en", "zh-CN"]) {
     assert.match(html, /class="pointer-figure"/);
   });
   test(`${language}: demo buttons independently toggle both states`, async () => {
-    const players = [true, false].map((enabled) => {
+    const players = [false, true].map((enabled) => {
       const attributes = { "aria-pressed": String(enabled) };
       const mask = { hidden: !enabled };
-      const label = { textContent: `${enabled ? "01" : "02"} / ${enabled ? "Subtitles hidden" : "Subtitles revealed"}`, setAttribute() {} };
+      const label = { textContent: `${enabled ? "Subtitles hidden" : "Subtitles revealed"}`, setAttribute() {} };
       const button = {
         getAttribute: (key) => attributes[key],
         setAttribute: (key, value) => (attributes[key] = value),
@@ -105,15 +111,15 @@ for (const language of ["en", "zh-CN"]) {
     });
     runInNewContext(await read("demo.js"), { document: { documentElement: { lang: language }, querySelectorAll: () => players } });
     players[0].button.click();
-    assert.equal(players[0].mask.hidden, true);
-    assert.equal(players[0].attributes["aria-pressed"], "false");
-    assert.equal(players[0].label.textContent, `01 / ${language === "en" ? "Subtitles revealed" : "字幕已显示"}`);
-    assert.equal(players[1].mask.hidden, true);
-    players[0].button.click();
     assert.equal(players[0].mask.hidden, false);
-    players[1].button.click();
+    assert.equal(players[0].attributes["aria-pressed"], "true");
+    assert.equal(players[0].label.textContent, `${language === "en" ? "Subtitles hidden" : "字幕已隐藏"}`);
     assert.equal(players[1].mask.hidden, false);
-    assert.match(players[1].label.textContent, language === "en" ? /Subtitles hidden/ : /字幕已隐藏/);
+    players[0].button.click();
+    assert.equal(players[0].mask.hidden, true);
+    players[1].button.click();
+    assert.equal(players[1].mask.hidden, true);
+    assert.match(players[1].label.textContent, language === "en" ? /^Subtitles revealed$/ : /^字幕已显示$/);
   });
 }
 test("demo icons match the pinned upstream font", async () => {
@@ -136,9 +142,9 @@ for (const file of ["index.html", "en.html", "zh-CN.html"]) {
     const language = file === "zh-CN.html" ? "zh-CN" : "en";
     assert.match(html, /<h1[\s\S]*?<\/h1>/);
     assert.match(html, /class="download-card"/);
-    assert.ok(html.includes(`rel="canonical" href="https://babel-player.tony9527167.pages.dev/${language}.html"`));
+    assert.ok(html.includes(`rel="canonical" href="https://babel-player.pages.dev/${language}"`));
     for (const alternate of ["en", "zh-CN", "x-default"]) {
-      assert.ok(html.includes(`hreflang="${alternate}" href="https://babel-player.tony9527167.pages.dev/`));
+      assert.ok(html.includes(`hreflang="${alternate}" href="https://babel-player.pages.dev/`));
     }
     assert.match(html, /property="og:image" content="https:\/\/[^" ]+social-preview.jpg"/);
     assert.match(html, /name="twitter:card" content="summary_large_image"/);
@@ -155,9 +161,17 @@ for (const file of ["index.html", "en.html", "zh-CN.html"]) {
 test("crawler discovery points to both canonical language pages", async () => {
   const robots = await read("robots.txt");
   assert.match(robots, /User-agent: \*\s+Allow: \//);
-  assert.match(robots, /Sitemap: https:\/\/babel-player.tony9527167.pages.dev\/sitemap.xml/);
+  assert.match(robots, /Sitemap: https:\/\/babel-player.pages.dev\/sitemap.xml/);
   const sitemap = await read("sitemap.xml");
-  for (const language of ["en", "zh-CN"]) assert.ok(sitemap.includes(`https://babel-player.tony9527167.pages.dev/${language}.html`));
+  for (const language of ["en", "zh-CN"]) assert.ok(sitemap.includes(`https://babel-player.pages.dev/${language}`));
   await access(new URL("assets/apple-touch-icon.png", import.meta.url));
   await access(new URL("assets/social-preview.jpg", import.meta.url));
 });
+
+for (const file of ["index.html", "en.html", "zh-CN.html"]) {
+  test(`${file}: footer links to GitHub and credits the team`, async () => {
+    const footer = (await read(file)).match(/<footer[\s\S]*?<\/footer>/)[0];
+    assert.match(footer, /<a href="https:\/\/github\.com\/tony9527167\/babel-player">GitHub<\/a>/);
+    assert.match(footer, /<p>Copyright © 2026 Babel Player Team<\/p>/);
+  });
+}

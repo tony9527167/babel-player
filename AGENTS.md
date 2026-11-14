@@ -2,4 +2,5 @@
 
 Coding styles
 
-- Format HTML/CSS/JavaScript source code with prettier before save them.
+- Format HTML with VS Code's built-in HTML formatter (`vscode.html-language-features`) before saving. Do not format HTML with Prettier.
+- Format CSS and JavaScript with Prettier using the project's configuration before saving.

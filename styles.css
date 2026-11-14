@@ -96,6 +96,7 @@ a:not(.button):hover {
 .hero {
   text-align: center;
   padding-top: 24px;
+  padding-bottom: 40px;
 }
 h1,
 h2 {
@@ -229,10 +230,12 @@ h1 em {
 .pointer-figure {
   width: 100%;
 }
-.demo-note {
-  color: var(--muted);
-  font-size: 18px;
-  margin: 10px 0 40px;
+.hero-feature {
+  color: var(--green);
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 20px auto;
+  max-width: 640px;
 }
 .demo-stage .subtitle {
   font-size: clamp(12px, 1.3vw, 18px);
@@ -252,10 +255,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 36px;
-}
-.feature-number {
-  color: var(--green);
-  font-size: 14px;
 }
 h3 {
   font-size: 22px;
@@ -318,6 +317,9 @@ h3 {
   line-height: 1.6;
 }
 
-.codec-note p {
+.feature-grid .codec-note p {
   margin: 8px 0 0;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
 }

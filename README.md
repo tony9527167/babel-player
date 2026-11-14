@@ -1,25 +1,40 @@
-# Babel Player website
+# About
 
-Static bilingual product site with no build step. Preview with `npm run website:dev`, then open <http://localhost:8080>. Deploy the contents of `website/` to a static host.
+Babel Player: A video player for English learners.
 
-The entry page includes the complete English product content for readers without JavaScript, then detects browser language preferences: English opens `en.html`, Simplified Chinese opens `zh-CN.html`, and other languages fall back to English. Traditional Chinese tags fall back to English. Explicit language pages stay in the selected language; the header links switch languages without automatic redirection.
+Downloads
 
-The two illustrative players compare hidden and revealed subtitles; each highlighted button independently toggles its mask. Hover highlights the button; clicking changes the mask, matching the application. The controls follow `src/script-opts/uosc.conf`, including the separate timeline and video/control gap. The icon font comes from the pinned uosc source; its license is in `assets/player-icons-LICENSE.txt`.
+- [Windows 10+](https://github.com/tony9527167/babel-player/releases/download/v2026.10.1-rc0/Babel.Player.Windows-amd64.zip)
+- [macOS 11+ Apple Silicon](https://github.com/tony9527167/babel-player/releases/download/v2026.10.1-rc0/Babel.Player.macOS-arm64.zip)
 
-Download URLs are the supplied S3 paths and must be populated before release. The page advertises downloads under 30 MB for both platforms. The local Windows executable compresses to about 18.8 MB; the macOS archive size still needs release verification. The codec note below the feature cards lists the minimum profile checked in `src/build/verify.py`; it is not an exhaustive codec list. The format examples include MP4, MKV, AVI, MOV, and WebM, confirmed against the generated Windows format reader list and the corresponding FFmpeg readers. macOS shares the base format configuration; macOS playback was not verified here.
+Screenshot
 
-Run `npm run website:test` and `npm run website:format:check` for regressions and formatting.
+![Babel Player screenshot](./screenshot.png)
 
-Website formatting uses `website/.prettierrc.yaml`, with the repository’s existing 160-column width and two-space indentation.
+NOTICE: I'm hosting the binaries on GitHub. The player source code won't be uploaded until it's stable.
 
-## Search, agents, and mobile browsers
+## Website source license
 
-Production metadata uses `https://babel-player.tony9527167.pages.dev/`, as the public website URL supplied for this deployment. If hosting changes, update canonical URLs, language alternates, social metadata, application JSON, `robots.txt`, and `sitemap.xml` together. The root is a full English fallback with a canonical link to `en.html`; automatic language routing runs only at the root. Both language pages remain directly accessible.
+The original website source in this directory is licensed under the [MIT License](./LICENSE), copyright (c) 2026 Babel Player Team. Third-party assets retain their own licenses; see [the player icon font license](./assets/player-icons-LICENSE.txt). This license applies only to the website source, not the Babel Player application or its binaries.
 
-Product descriptions, platform requirements, and download links are plain HTML. The application JSON matches the visible product content and does not invent prices, ratings, or release versions. `robots.txt` permits crawling, including AI crawlers that honor it. No special AI file is needed for Google’s AI search features. Hosting access controls and crawler policies can still override these files.
+## Website deployment
 
-The mobile layout supports zoom, safe area insets, dynamic browser height, reduced motion, and touch targets of at least 44 pixels for interactive demo buttons and language links. The Apple touch icon is generated from the application icon. The social image is a local 1280×640 JPEG.
+Production: https://babel-player.pages.dev
 
-Install Google Chrome and Python as prerequisites. Install test tools with `npm ci`, then `npx playwright install webkit`. Run `npm run website:test:browser` for the installed Google Chrome and an emulated iPhone in WebKit, including narrow screens, landscape, language routing, and JavaScript-disabled reading. These checks require Python on the command path. They do not replace tests on a physical iPhone or macOS Safari.
+Install Node.js LTS, then run `npm ci`. Use `npm run build` to copy public files into `dist/`, `npm run preview` to preview with Cloudflare locally, and `npm run deploy` to publish the production deployment. Run `npx wrangler login` first when deploying from a new computer.
 
-Before publishing, populate and verify the download URLs, serve public pages and metadata over HTTPS with successful responses and correct content types, check that the host does not add crawler blocks or `noindex` headers, and submit the sitemap in Google Search Console. Indexing and AI inclusion are not guaranteed by markup.
+The build sets canonical, language, social preview, and sitemap URLs to the production origin declared in `build.mjs`. Development files and dependencies are excluded from the upload.
+
+The Cloudflare Pages project uses Direct Upload and production branch `2026.10`. Git pushes do not deploy automatically. Project settings are in `wrangler.toml`; `deploy.mjs` selects the account, overridable with `CLOUDFLARE_ACCOUNT_ID`. Account IDs are public identifiers, not credentials.
+
+Validation: `npm test` runs the existing website checks and deployment tests; `npm run test:build` runs deployment tests alone. `npm run format:check` checks deployment tooling formatting. There is no TypeScript compilation step.
+
+## Search and AI crawler access
+
+The English (`/en`) and Simplified Chinese (`/zh-CN`) pages contain complete HTML content, self-referencing canonical URLs, reciprocal language links, social metadata, and SoftwareApplication structured data. Canonical URLs use Cloudflare Pages extensionless paths to avoid redirects. The root keeps browser language selection and supplies English HTML for clients without JavaScript. A top-level `404.html` makes Pages return HTTP 404 for missing URLs instead of treating the site as a single-page application.
+
+`robots.txt` allows every crawler, including Googlebot, Bingbot, and AI search crawlers such as OAI-SearchBot. No separate bot rules are needed. This also permits training crawlers that follow robots.txt. Cloudflare account-level bot protection, managed robots rules, or challenges can still override access; check those settings if verified crawlers receive a challenge or HTTP 403.
+
+After deployment, submit `https://babel-player.pages.dev/sitemap.xml` in Google Search Console and Bing Webmaster Tools for a verified property, then inspect `/en` and `/zh-CN`. Sitemap submission and crawler access make pages eligible for discovery; search engines and AI services decide whether and when to index or cite them. No indexing or AI citation is guaranteed.
+
+Run `npm run typecheck`, `npm run test:build`, and `npm test` before deploying. Check that canonical pages, robots.txt, and sitemap.xml return HTTP 200, `.html` paths redirect to the canonical paths, and an unknown URL returns HTTP 404. Repeat access checks with Googlebot, Bingbot, and OAI-SearchBot user agents; a spoofed user agent is only a basic access check, not proof that verified bots bypass hosting protection.
