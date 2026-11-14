@@ -167,3 +167,11 @@ test("crawler discovery points to both canonical language pages", async () => {
   await access(new URL("assets/apple-touch-icon.png", import.meta.url));
   await access(new URL("assets/social-preview.jpg", import.meta.url));
 });
+
+for (const file of ["index.html", "en.html", "zh-CN.html"]) {
+  test(`${file}: footer links to GitHub and credits the team`, async () => {
+    const footer = (await read(file)).match(/<footer[\s\S]*?<\/footer>/)[0];
+    assert.match(footer, /<a href="https:\/\/github\.com\/tony9527167\/babel-player">GitHub<\/a>/);
+    assert.match(footer, /<p>Copyright © 2026 Babel Player Team<\/p>/);
+  });
+}

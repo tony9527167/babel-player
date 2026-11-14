@@ -6,6 +6,10 @@ Babel Player: A video player for English learners.
 
 NOTICE: I'm hosting the binaries on GitHub. The player source code won't be uploaded until it's stable.
 
+## Website source license
+
+The original website source in this directory is licensed under the [MIT License](./LICENSE), copyright (c) 2026 Babel Player Team. Third-party assets retain their own licenses; see [the player icon font license](./assets/player-icons-LICENSE.txt). This license applies only to the website source, not the Babel Player application or its binaries.
+
 ## Website deployment
 
 Production: https://babel-player.pages.dev
