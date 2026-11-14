@@ -2,6 +2,13 @@
 
 Babel Player: A video player for English learners.
 
+Downloads
+
+- [Windows 10+](https://github.com/tony9527167/babel-player/releases/download/v2026.10.1-rc0/Babel.Player.Windows-amd64.zip)
+- [macOS 11+ Apple Silicon](https://github.com/tony9527167/babel-player/releases/download/v2026.10.1-rc0/Babel.Player.macOS-arm64.zip)
+
+Screenshot
+
 ![Babel Player screenshot](./screenshot.png)
 
 NOTICE: I'm hosting the binaries on GitHub. The player source code won't be uploaded until it's stable.
