@@ -2,6 +2,8 @@
 
 Babel Player: A video player for English learners.
 
+![Babel Player screenshot](./screenshot.png)
+
 NOTICE: I'm hosting the binaries on GitHub. The player source code won't be uploaded until it's stable.
 
 ## Website deployment
