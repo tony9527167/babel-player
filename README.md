@@ -21,3 +21,13 @@ The build sets canonical, language, social preview, and sitemap URLs to the prod
 The Cloudflare Pages project uses Direct Upload and production branch `2026.10`. Git pushes do not deploy automatically. Project settings are in `wrangler.toml`; `deploy.mjs` selects the account, overridable with `CLOUDFLARE_ACCOUNT_ID`. Account IDs are public identifiers, not credentials.
 
 Validation: `npm test` runs the existing website checks and deployment tests; `npm run test:build` runs deployment tests alone. `npm run format:check` checks deployment tooling formatting. There is no TypeScript compilation step.
+
+## Search and AI crawler access
+
+The English (`/en`) and Simplified Chinese (`/zh-CN`) pages contain complete HTML content, self-referencing canonical URLs, reciprocal language links, social metadata, and SoftwareApplication structured data. Canonical URLs use Cloudflare Pages extensionless paths to avoid redirects. The root keeps browser language selection and supplies English HTML for clients without JavaScript. A top-level `404.html` makes Pages return HTTP 404 for missing URLs instead of treating the site as a single-page application.
+
+`robots.txt` allows every crawler, including Googlebot, Bingbot, and AI search crawlers such as OAI-SearchBot. No separate bot rules are needed. This also permits training crawlers that follow robots.txt. Cloudflare account-level bot protection, managed robots rules, or challenges can still override access; check those settings if verified crawlers receive a challenge or HTTP 403.
+
+After deployment, submit `https://babel-player.pages.dev/sitemap.xml` in Google Search Console and Bing Webmaster Tools for a verified property, then inspect `/en` and `/zh-CN`. Sitemap submission and crawler access make pages eligible for discovery; search engines and AI services decide whether and when to index or cite them. No indexing or AI citation is guaranteed.
+
+Run `npm run typecheck`, `npm run test:build`, and `npm test` before deploying. Check that canonical pages, robots.txt, and sitemap.xml return HTTP 200, `.html` paths redirect to the canonical paths, and an unknown URL returns HTTP 404. Repeat access checks with Googlebot, Bingbot, and OAI-SearchBot user agents; a spoofed user agent is only a basic access check, not proof that verified bots bypass hosting protection.

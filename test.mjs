@@ -142,9 +142,9 @@ for (const file of ["index.html", "en.html", "zh-CN.html"]) {
     const language = file === "zh-CN.html" ? "zh-CN" : "en";
     assert.match(html, /<h1[\s\S]*?<\/h1>/);
     assert.match(html, /class="download-card"/);
-    assert.ok(html.includes(`rel="canonical" href="https://babel-player.tony9527167.pages.dev/${language}.html"`));
+    assert.ok(html.includes(`rel="canonical" href="https://babel-player.pages.dev/${language}"`));
     for (const alternate of ["en", "zh-CN", "x-default"]) {
-      assert.ok(html.includes(`hreflang="${alternate}" href="https://babel-player.tony9527167.pages.dev/`));
+      assert.ok(html.includes(`hreflang="${alternate}" href="https://babel-player.pages.dev/`));
     }
     assert.match(html, /property="og:image" content="https:\/\/[^" ]+social-preview.jpg"/);
     assert.match(html, /name="twitter:card" content="summary_large_image"/);
@@ -161,9 +161,9 @@ for (const file of ["index.html", "en.html", "zh-CN.html"]) {
 test("crawler discovery points to both canonical language pages", async () => {
   const robots = await read("robots.txt");
   assert.match(robots, /User-agent: \*\s+Allow: \//);
-  assert.match(robots, /Sitemap: https:\/\/babel-player.tony9527167.pages.dev\/sitemap.xml/);
+  assert.match(robots, /Sitemap: https:\/\/babel-player.pages.dev\/sitemap.xml/);
   const sitemap = await read("sitemap.xml");
-  for (const language of ["en", "zh-CN"]) assert.ok(sitemap.includes(`https://babel-player.tony9527167.pages.dev/${language}.html`));
+  for (const language of ["en", "zh-CN"]) assert.ok(sitemap.includes(`https://babel-player.pages.dev/${language}`));
   await access(new URL("assets/apple-touch-icon.png", import.meta.url));
   await access(new URL("assets/social-preview.jpg", import.meta.url));
 });
